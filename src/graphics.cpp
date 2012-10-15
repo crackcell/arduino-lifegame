@@ -54,7 +54,8 @@ int graph_print_string(graph_t *graph_ptr,
 }
 
 void graph_clear_status(graph_t *graph_ptr) {
-    memset(graph_ptr->video_mem_status, 0, sizeof(graph_ptr->video_mem_status));
+    memset(graph_ptr->video_mem_status, 0,
+           sizeof(graph_ptr->video_mem_status));
 }
 
 int graph_flush(graph_t *graph_ptr) {
@@ -75,17 +76,22 @@ int graph_flush(graph_t *graph_ptr) {
     return ERR_OK;
 }
 
-int graph_setxy_on(graph_t *graph_ptr,
-                    const int x, const int y) {
+int graph_isxy_on(graph_t *graph_ptr, const int row, const int col) {
+    byte offset = row % 8;
+    int x2 = int(row / 8);
+    return graph_ptr->video_mem[x2][col] & (1 << offset);
+}
+
+int graph_setxy_on(graph_t *graph_ptr, const int row, const int col) {
     if (graph_ptr == NULL ||
-        x >= GRAPH_HEIGHT || y >= GRAPH_WIDTH) {
+        row >= GRAPH_HEIGHT || col >= GRAPH_WIDTH) {
         return ERR_PARAM;
     }
 
-    byte offset = x % 8;
-    int x2 = int(x / 8);
-    graph_ptr->video_mem[x2][y] |= (1 << offset);
-    graph_ptr->video_mem_status[x2][y] = 1; // changed
+    byte offset = row % 8;
+    int x2 = int(row / 8);
+    graph_ptr->video_mem[x2][col] |= (1 << offset);
+    graph_ptr->video_mem_status[x2][col] = 1; // changed
 
     return ERR_OK;
 }

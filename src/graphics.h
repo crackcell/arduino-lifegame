@@ -2,19 +2,22 @@
 
 /***************************************************************
  *
- * Copyright (c) 2012, crackcell <tanmenglong@gmail.com>
+ * Copyright (c) 2012, Tan Menglong <tanmenglong@gmail.com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GPL licence
  *
  **************************************************************/
 
+#ifndef _GRAPHICS_H_
+#define _GRAPHICS_H_
+
 /**
  * 
  *
  * @file graphics.h
  * @author Tan Menglong <tanmenglong@gmail.com>
- * @date Mon Oct 15 09:59:57 2012
+ * @date Mon Oct 15 11:04:39 2012
  *
  **/
 
@@ -39,12 +42,14 @@ void graph_clear(graph_t *graph_ptr);
 void graph_backlight_on(graph_t *graph_ptr);
 void graph_backlight_off(graph_t *graph_ptr);
 int graph_print_string(graph_t *graph_ptr,
-                        unsigned char x, unsigned char y, char *str, char mode);
+                       unsigned char x, unsigned char y, char *str,
+                       char mode);
 void graph_clear_status(graph_t *graph_ptr);
 int graph_flush(graph_t *graph_ptr);
-int graph_setxy_on(graph_t *graph_ptr,
-                    const int x, const int y);
-int graph_setxy_off(graph_t *graph_ptr,
-                     const int x, const int y);
+int graph_isxy_on(graph_t *graph_ptr, const int row, const int col);
+int graph_setxy_on(graph_t *graph_ptr, const int x, const int y);
+int graph_setxy_off(graph_t *graph_ptr, const int x, const int y);
+
+#endif /* _GRAPHICS_H_ */
 
 /* vim: set expandtab shiftwidth=4 tabstop=4: */
