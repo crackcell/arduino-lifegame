@@ -42,6 +42,9 @@ void init_world(world_t *world_ptr, graph_t *graph_ptr, const int x) {
 
 void reproduce(world_t *world_ptr) {
     int r, c, n;
+    if (world_ptr->count == 0) {
+        return;
+    }
     for (r = 0; r < GRAPH_HEIGHT; r++) {
         for (c = 0; c < GRAPH_WIDTH; c++) {
             n = __get_neighbour_count(world_ptr, r, c);
