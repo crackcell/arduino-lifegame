@@ -19,4 +19,6 @@ void loop() {
     }
 
     graph_flush(&g_graph);
+
+    delay(2000);
 }
