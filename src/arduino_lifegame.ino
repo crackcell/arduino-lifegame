@@ -16,5 +16,9 @@ void loop() {
     graph_clear_status(&g_graph);
     reproduce(&g_world);
     plot_world(&g_world);
-    delay(2000);
+    if (g_world.count == 0) {
+        init_world(&g_world, &g_graph, 3500);
+        plot_world(&g_world);
+    }
+    delay(1000);
 }

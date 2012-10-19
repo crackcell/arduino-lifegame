@@ -31,6 +31,7 @@ void plot_world(world_t *world_ptr) {
 void init_world(world_t *world_ptr, graph_t *graph_ptr, const int x) {
     int row, col, k, i;
     world_ptr->graph_ptr = graph_ptr;
+    world_ptr->count = 0;
     for (k = 0; k < x; k++) {
         i = rand() % (GRAPH_WIDTH * GRAPH_HEIGHT);
         row = int(i / GRAPH_WIDTH);
