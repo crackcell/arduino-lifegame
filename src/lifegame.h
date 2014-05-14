@@ -24,8 +24,8 @@
 #include "graphics.h"
 
 typedef struct {
-    graph_t *graph_ptr;
-    int count;
+  graph_t *graph_ptr;
+  int count;
 } world_t;
 
 void plot_world(world_t *world_ptr);

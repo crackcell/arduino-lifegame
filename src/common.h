@@ -19,9 +19,9 @@
  **/
 
 typedef enum {
-    ERR_OK = 0,
-    ERR_GENERAL = 1,
-    ERR_PARAM = 3
+  ERR_OK = 0,
+  ERR_GENERAL = 1,
+  ERR_PARAM = 3
 } err_code_t;
 
 /* vim: set expandtab shiftwidth=4 tabstop=4: */
